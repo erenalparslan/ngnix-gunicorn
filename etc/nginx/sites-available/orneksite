@@ -1,0 +1,12 @@
+server {
+listen 6780;
+
+location / {
+  include proxy_params;
+  proxy_pass http://unix:/home/ubuntu/api-open-source/app.sock;
+    }
+location /static  {
+    include  /etc/nginx/mime.types;
+    root /home/ubuntu/api-open-source/;
+  }
+}
